@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def full_title(page_title = '')                     # Method def, optional arg
-    base_title = "My Blogstser"  # Variable assignment
+    base_title = "Your Daily Gazette"  # Variable assignment
     if page_title.empty?                              # Boolean test
       base_title                                      # Implicit return
     else
