@@ -1,10 +1,11 @@
 
 Rails.application.routes.draw do
+  default_url_options host: "3000"
 
+  devise_for :users, controllers: { sessions: 'users/sessions', 
+                                    registrations: 'users/registrations' 
+                                  }
   resources :users
-
-  get 'users/new'
-
   root 'static_pages#home'
 
   get '/home', to: 'static_pages#home'
@@ -15,7 +16,11 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
 
-  post '/signup',  to: 'users#create'  
+  post '/signup',  to: 'users#create'
+
+  resources :articles
+
+  get '/article', to: 'articles#new'  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

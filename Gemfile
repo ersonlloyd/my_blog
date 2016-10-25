@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 #bootstrap
 gem 'bootstrap-sass', '3.3.6'
+gem 'hamlit'
+gem 'erb2haml'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -27,7 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
- gem 'devise'
+ gem 'devise' 
+ gem 'carrierwave', '>= 1.0.0.beta', '< 2.0' 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
