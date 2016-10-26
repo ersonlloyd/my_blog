@@ -1,0 +1,17 @@
+.container
+  .col-xs-12.col-md-2
+    %h3 My Articles
+    .col-md-1.left-align
+      = link_to "Add New", new_article_path, class: "btn btn-md btn-default"
+.container
+  .col-sm-10.col-sm-offset-1.col-xs-12.blog-content
+    - @articles.each do |article|
+      .col-xs-12
+        .text-center
+          %h2= article.title
+          %h6= article.created_at.strftime('%b %d, %Y')
+        %div
+          = raw(article.article_details).truncate(358)
+        .text-center
+          = link_to "READ MORE", article_path(article)
+        %br/

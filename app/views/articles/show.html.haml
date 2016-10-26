@@ -1,0 +1,6 @@
+.col-sm-11.col-xs-12.blog-content
+  %h2.text-center= @article.title
+  - if current_user.id == @article.user_id
+    = link_to "Edit", edit_article_path
+  %h5.text-center= @article.created_at.strftime('%b %d, %Y')
+  %div= raw @article.article_details

@@ -1,11 +1,14 @@
 
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   default_url_options host: "3000"
 
   devise_for :users, controllers: { sessions: 'users/sessions', 
                                     registrations: 'users/registrations' 
                                   }
   resources :users
+  resources :comments
+  resources :articles
   root 'static_pages#home'
 
   get '/home', to: 'static_pages#home'

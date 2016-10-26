@@ -1,11 +1,13 @@
 - provide(:title, 'New Articles')
-%h1 Articles
-.row
-  .col-md-6.col-md-offset-3
-    = form_for(@article) do |f|
-      = render 'shared/error_messages'
-      = f.label :title
-      = f.text_field :title, class: 'form-control'
-      = f.label :article
-      = f.text_area :article_details, class: 'form-control'
-      = f.submit "Share", class: "btn btn-primary"
+%h1 Create New Article
+/ .row
+/   .col-md-6.col-md-offset-3
+/     = form_for(@article) do |f|
+/       = render 'shared/error_messages'
+/       = f.label :title
+/       = f.text_field :title, class: 'form-control'
+/       = f.label :article
+/       = f.text_area :article_details, class: 'form-control'
+/       = f.submit "Share", class: "btn btn-primary"
+%h2 Create new article
+= render 'articles/form'

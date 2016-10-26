@@ -5,6 +5,7 @@
       %nav
         %ul.nav.navbar-nav.navbar-right
           %li= link_to "Home",   root_path
+          %li= link_to "Articles", articles_path
           %li= link_to "Help",   help_path
           \#
           - if user_signed_in?
