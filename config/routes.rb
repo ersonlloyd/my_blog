@@ -8,7 +8,14 @@ Rails.application.routes.draw do
                                   }
   resources :users
   resources :comments
-  resources :articles
+  
+  resources :articles do
+    member do
+      put :create_comment
+     # post:create_comment
+    end
+  end
+
   root 'static_pages#home'
 
   get '/home', to: 'static_pages#home'

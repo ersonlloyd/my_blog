@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     
     if @comment.save
       flash[:notice] = "Successfully saved!"
-      redirect_to article_path(@article)
+      redirect_to 'comments/form'
     else
       flash[:alert] = "Error creating a comment!"
       render :new
@@ -32,9 +32,25 @@ class CommentsController < ApplicationController
 
   def update
 
+    if @comment.update_attributes(comment_params)
+      flash[:noitce] = "Successfully updated comment!"
+      redirect_to article_path(@article)
+    else
+      flash[:alert] = "Error updating post!"
+    end
+
+
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment.destroy
+      flash[:notice] = "Successfully deleted post!"
+      redirect_to :back
+    else
+      flash[:alert] = "Error updating comment"
+    end
 
   end
 

@@ -1,6 +1,13 @@
 .col-sm-11.col-xs-12.blog-content
   %h2.text-center= @article.title
   - if current_user.id == @article.user_id
-    = link_to "Edit", edit_article_path
+    = link_to "Edit", edit_article_path, class: "btn btn-md btn-default"
+    = link_to "Delete", article_path(@article),method: :delete, class: "btn btn-md btn-default" 
   %h5.text-center= @article.created_at.strftime('%b %d, %Y')
   %div= raw @article.article_details
+  %div
+    .container
+      %h2 Comments:
+      = render "comments/show"
+    .container
+      = render "comments/form"

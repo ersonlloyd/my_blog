@@ -1,0 +1,5 @@
+.container
+  - @comments.each do |comment|
+    %p= comment.message
+    = " #{comment.user.name}, #{comment.created_at.strftime('%b %d, %Y')} "
+    = link_to "Delete", comment_path(comment), method: :delete

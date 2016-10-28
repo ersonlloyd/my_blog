@@ -1,14 +1,20 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :create,:new, :delete]
+  before_action :authenticate_user!, only: [:edit, :update, :create,:new, :destroy]
 
-  before_action :find_post, only: [:edit, :update, :show, :delete]
+  before_action :find_post, only: [:edit, :update, :show, :destroy]
 
   def index
     @articles = Article.all
+
   end
 
   def new
     @article = Article.new
+  end
+
+  def show
+    @comments = Comment.all
+    @comment = Comment.new
   end
 
   def create
@@ -43,13 +49,30 @@ class ArticlesController < ApplicationController
 
   def destroy
     
+
     if @article.destroy
       flash[:notice] = "Successfully deleted post!"
-      # redirect_to posts_path
+      redirect_to articles_path
     else
       flash[:alert] = "Error updating post!"
     end
 
+  end
+
+ def create_comment
+    @comment = current_user.comments.create(comment_params)
+    @article = Article.find(params[:id])
+    @article.comments << @comment
+    
+    if @comment.save
+      flash[:notice] = "Successfully saved!"
+      redirect_to article_path(@article)
+    else
+      flash[:alert] = "Error creating a comment!"
+      render :new
+    end
+
+    
   end
 
 
@@ -61,6 +84,10 @@ class ArticlesController < ApplicationController
 
   def find_post
     @article = Article.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:message, :user_id)
   end
 
 end
