@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :create,:new, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :create,:new, :destroy, :show]
 
   before_action :find_post, only: [:edit, :update, :show, :destroy]
 
@@ -60,16 +60,25 @@ class ArticlesController < ApplicationController
   end
 
  def create_comment
+
     @comment = current_user.comments.create(comment_params)
     @article = Article.find(params[:id])
     @article.comments << @comment
     
-    if @comment.save
-      flash[:notice] = "Successfully saved!"
-      redirect_to article_path(@article)
-    else
-      flash[:alert] = "Error creating a comment!"
-      render :new
+    # if @comment.save
+    #   respond_to do |format|
+    #   format.js
+    #   end 
+    # else
+    #   flash[:alert] = "Error creating a comment!"
+    #   render :new
+    # end
+    respond_to do |format|
+      if @comment.save
+        format.js
+      else
+        render :head
+      end
     end
 
     
