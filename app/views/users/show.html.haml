@@ -1,0 +1,16 @@
+- provide(:title, @user.name)
+
+.contianer.col-md-8
+  .user_info
+    .container.col-md-8
+      .profile-img= gravatar_for @user
+      %h1.user-name= @user.name
+      %h2.user-email= @user.email
+.container.col-md-4
+  .center
+    %h4 Forums
+.container.col-md-8
+  .center.user-details
+    %h2 User Details
+
+

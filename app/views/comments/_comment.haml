@@ -1,0 +1,4 @@
+.comment-details
+	%p.text-left= " #{item.user.name}, #{item.created_at.strftime('%b %d, %Y')} "
+	= item.message
+	= link_to "Delete", comment_path(item), method: :delete

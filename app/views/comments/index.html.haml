@@ -1,0 +1,14 @@
+
+.container
+  .col-xs-12.col-md-12
+    %h3 Your Comment:
+    .col-mid-1.left-align
+      = link_to "Add Comment", new_comment_path, class:"btn btn-md btn-default"
+.container
+  .col-sm-10.col-sm-offset-1.col-xs-12.comment-content
+    - @comments.each do |article|
+      .col-xs-12
+        .text-left
+          %h4 =comment.message  
+          %h6 =comment.created_at.strftime('%b %d, %Y')
+   
