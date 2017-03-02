@@ -83,7 +83,7 @@ class ArticlesController < ApplicationController
 
     
   end
-
+	
 
   private
 

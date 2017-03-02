@@ -5,4 +5,21 @@
     = link_to "Sign up now!", new_user_registration_path, class: "btn btn-md btn-default"
 .container
   .center.main-content
+    / - articles = Article.new
+    / = carousel_for(articles.article_urls)
+    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      .carousel-inner
+        .item.active
+          = image_tag 'bckgrnd.jpg'
+        .item
+          = image_tag 'blogger.png'
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
+      %span.glyphicon.glyphicon-chevron-left
+    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
+      %span.glyphicon.glyphicon-chevron-right
+
     
