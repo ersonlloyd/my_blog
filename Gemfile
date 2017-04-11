@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'mini_magick'
  gem 'simple_form'
  gem 'ckeditor', '~> 4.1' 
+ gem 'react-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
