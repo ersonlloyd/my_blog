@@ -1,7 +1,4 @@
 $.onmount('[role~=request-comment]', function(){
-
-	debugger;
-	console.log("lalalala");
 	
 	var $comment = $(this).parent().parent().find();
 
